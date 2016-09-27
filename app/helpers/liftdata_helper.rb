@@ -1,0 +1,2 @@
+module LiftdataHelper
+end

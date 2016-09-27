@@ -1,0 +1,1 @@
+json.array! @liftdata, partial: 'liftdata/liftdatum', as: :liftdatum
