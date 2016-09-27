@@ -1,0 +1,2 @@
+class Liftdatum < ApplicationRecord
+end

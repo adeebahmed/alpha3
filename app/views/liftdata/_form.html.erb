@@ -1,0 +1,37 @@
+<%= form_for(liftdatum) do |f| %>
+  <% if liftdatum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(liftdatum.errors.count, "error") %> prohibited this liftdatum from being saved:</h2>
+
+      <ul>
+      <% liftdatum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :exercise %>
+    <%= f.text_field :exercise %>
+  </div>
+
+  <div class="field">
+    <%= f.label :set %>
+    <%= f.number_field :set %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rep %>
+    <%= f.number_field :rep %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.number_field :weight %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
