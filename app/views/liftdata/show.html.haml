@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Exercise:
+  = @liftdatum.exercise
+%p
+  %strong Set:
+  = @liftdatum.set
+%p
+  %strong Rep:
+  = @liftdatum.rep
+%p
+  %strong Weight:
+  = @liftdatum.weight
+= link_to 'Edit', edit_liftdatum_path(@liftdatum)
+|
+= link_to 'Back', liftdata_path

@@ -1,0 +1,23 @@
+= form_for(liftdatum) do |f|
+  - if liftdatum.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(liftdatum.errors.count, "error")
+        prohibited this liftdatum from being saved:
+      %ul
+        - liftdatum.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :exercise
+    = f.text_field :exercise
+  .field
+    = f.label :set
+    = f.number_field :set
+  .field
+    = f.label :rep
+    = f.number_field :rep
+  .field
+    = f.label :weight
+    = f.number_field :weight
+  .actions
+    = f.submit

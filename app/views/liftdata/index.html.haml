@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Liftdata
+%table
+  %thead
+    %tr
+      %th Exercise
+      %th Set
+      %th Rep
+      %th Weight
+      %th{:colspan => "3"}
+  %tbody
+    - @liftdata.each do |liftdatum|
+      %tr
+        %td= liftdatum.exercise
+        %td= liftdatum.set
+        %td= liftdatum.rep
+        %td= liftdatum.weight
+        %td= link_to 'Show', liftdatum
+        %td= link_to 'Edit', edit_liftdatum_path(liftdatum)
+        %td= link_to 'Destroy', liftdatum, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Liftdatum', new_liftdatum_path
