@@ -6,8 +6,8 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   test "User must have firstname" do
-    user1 = User.new
-    assert user.invalid?
+    u = User.new
+    assert u.invalid?
   end
 
 end
