@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+lift_one:
+  exercise: Bench Press
+  set: 2
+  rep: 4
+  weight: 185 
+  user: user_one
+
+lift_two:
+  exercise: Deadlift
+  set: 4
+  rep: 2
+  weight: 315
+  user: user_two
+
+lift_three: 
+  exercise: Squat
+  set: 1
+  rep: 1
+  weight: 315
+  user: user_two

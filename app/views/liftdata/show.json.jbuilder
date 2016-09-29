@@ -1,0 +1,1 @@
+json.partial! "liftdata/liftdatum", liftdatum: @liftdatum

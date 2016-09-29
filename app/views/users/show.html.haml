@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Firstname:
+  = @user.firstname
+%p
+  %strong Lastname:
+  = @user.lastname
+%p
+  %strong Height:
+  = @user.height
+%p
+  %strong Weight:
+  = @user.weight
+%p
+  %strong Age:
+  = @user.age
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'Back', users_path
