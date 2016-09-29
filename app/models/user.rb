@@ -3,4 +3,6 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   validates :weight, presence: true
   validates :height, presence: true
+  
+  has_many :liftdatum
 end
