@@ -2,10 +2,10 @@ User.destroy_all
 Liftdatum.destroy_all
 
 (1..5).each do |i|
-  user = User.create(firstname: "Adeeb#{i}", lastname: "Ahmed#{i}", height: "70", weight:"175", age:"21")
- 
+  user = User.create(firstname: "Adeeb#{i}", lastname: "Ahmed#{i}", height: "70", weight:"175", age:"21", date: "#{(i*-1).days.ago}")
+
   (1..10).each do |j|
-    liftdata = Liftdatum.create(exercise: "exercise no:#{j}", set: j, rep: j*2, weight: j*100, user: user)  
+    liftdata = Liftdatum.create(exercise: "exercise no:#{j}", set: j, rep: j*2, weight: j*25, user: user)  
   end
 end
 
