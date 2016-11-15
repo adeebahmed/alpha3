@@ -47,12 +47,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
-#Custom Gems
-
-#Use devise gem for user authentication and omniauth integration
-gem 'devise_token_auth'
-#Use omniauth google gem
-gem 'omniauth-google-oauth2'
-
