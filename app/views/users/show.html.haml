@@ -12,11 +12,11 @@
   %strong Weight:
   = @user.weight
 %p
-  %strong Age:
-  = @user.age
-= link_to 'Edit', edit_user_path(@user)
-|
-= link_to 'Back', users_path
+  %strong BMI:
+  = ((@user.weight.to_f/(@user.height * @user.height)) * 1000).round(1)
+
+= link_to 'Edit profile', edit_user_path(@user)
+//| = link_to 'Back', users_path
 
 #chart-1{style: "height: 30em;width: 75em;margin-left:11em;margin-top:-18.5em;"}
 
