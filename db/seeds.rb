@@ -4,8 +4,8 @@ Liftdatum.destroy_all
 lifts = Array["Bench Press", "Deadlift", "Squat","Bench Press", "Deadlift", "Squat","Bench Press", "Deadlift", "Squat", "Bench Press", "Deadlift"]
 users = Array["Adeeb Ahmed", "Eric Ng", "Karl stolley", "jane doe", "john doe"]
 
-(1..5).each do |i|
-  user = User.create(firstname: users[i].split(" ")[0], lastname: users[i].split(" ")[0],
+(0..4).each do |i|
+  user = User.create(id: i,firstname: users[i].split(" ")[0], lastname: users[i].split(" ")[1],
                      height: 70 +i, weight: 170 + (i*5), age:20+i, date: "#{(i*-1).days.ago}")
 
   (1..10).each do |j|
