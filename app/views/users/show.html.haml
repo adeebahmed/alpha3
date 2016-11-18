@@ -15,6 +15,13 @@
   %strong BMI:
   = ((@user.weight.to_f/(@user.height * @user.height)) * 1000).round(1)
 
+%input{name: "excercise", type: "hidden", value: @user.liftdatum.map do |item| item.exercise end}
+%input{name: "reps", type: "hidden", value: @user.liftdatum.map do |item| item.rep end}
+%input{name: "sets", type: "hidden", value: @user.liftdatum.map do |item| item.set end}
+%input{name: "weight", type: "hidden", value: @user.liftdatum.map do |item| item.weight end}
+%input{name: "reps", type: "hidden", value: @user.liftdatum.map do |item| item.created_at.strftime("%F") end}
+
+
 = link_to 'Edit profile', edit_user_path(@user)
 //| = link_to 'Back', users_path
 
