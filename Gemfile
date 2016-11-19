@@ -54,3 +54,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Use Devise for login auth
 gem 'devise'
+#Use omniauth - google for login
+gem 'omniauth-google-oauth2'
