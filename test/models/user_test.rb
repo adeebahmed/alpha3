@@ -5,12 +5,13 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
 
+  u = user(:user_one)
+
   test "User must have firstname, lastname, weight, and height" do
-    u = User.new
-    assert u.invalid?
+    assert u.valid?
   end
 
   test "User has lifting data" do
-    u = user(:user_one)
-    assert_equal(user.liftdatum.count, 2)
+    assert_equal(u.liftdatum.count, 1);
+  end
 end
