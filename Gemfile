@@ -56,5 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 #omniauth oauth
 gem 'omniauth'
-#omniauth strategy facebook
-gem 'omniauth-facebook'
+#omniauth strategy twitter
+gem 'omniauth-twitter'
