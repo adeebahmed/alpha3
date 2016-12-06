@@ -9,6 +9,9 @@
     = javascript_include_tag "//www.google.com/jsapi", "chartkick"
   %body
   %div#flex-container
+    %header#header
+      %p
+        = link_to 'Log in with Twitter', '/auth/twitter'
     %main
       %article
         = yield
