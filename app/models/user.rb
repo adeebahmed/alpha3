@@ -12,7 +12,7 @@ class User < ApplicationRecord
   	user.location = hash['info']['location']
   	user.image_url = hash['info']['image']
     user.url = hash['info']['urls']['Twitter']
-  	user.save!
+  	user.save(:validate => false)
   	user
   end
 end
