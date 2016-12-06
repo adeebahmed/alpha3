@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206034255) do
+ActiveRecord::Schema.define(version: 20161206040040) do
 
   create_table "liftdata", force: :cascade do |t|
     t.string   "exercise"
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 20161206034255) do
     t.date     "date"
     t.string   "uid",        null: false
     t.string   "provider",   null: false
+    t.string   "nickname"
+    t.string   "location"
+    t.string   "image_url"
+    t.string   "url"
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["uid"], name: "index_users_on_uid"
