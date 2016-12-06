@@ -11,6 +11,12 @@
   %div#flex-container
     %header#header
       %p
+        - if current_user
+        Welcome,
+        = current_user.name
+        = image_tag current_user.image_url, alt: current_user.name
+        = link_to 'Log Out', logout_path
+        - else
         = link_to 'Log in with Twitter', auth_path('twitter')
     %main
       %article
