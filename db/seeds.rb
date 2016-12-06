@@ -6,7 +6,7 @@ users = Array["Adeeb Ahmed", "Eric Ng", "Karl stolley", "jane doe", "john doe"]
 
 (0..4).each do |i|
   user = User.create!(id: i,firstname: users[i].split(" ")[0], lastname: users[i].split(" ")[1],
-                     height: 70 +i, weight: 170 + (i*5), age:20+i, date: "#{(i*-1).days.ago}")
+                     height: 70 +i, weight: 170 + (i*5), age:20+i, date: "#{(i*-1).days.ago}", uid:i, provider:i)
 
   (1..10).each do |j|
     liftdata = Liftdatum.create!(exercise: lifts[j], set: 11-j, rep: j, weight: j*25,
