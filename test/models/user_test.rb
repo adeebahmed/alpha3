@@ -14,4 +14,9 @@ class UserTest < ActiveSupport::TestCase
     adeeb = users(:user_one)
     assert_equal(adeeb.liftdatum.count, 2);
   end
+
+  test "User has valid lifting data" do
+    adeeb = users(:user_one)
+    assert adeeb.liftdatum[0].valid?
+  end
 end
