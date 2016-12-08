@@ -1,43 +1,67 @@
-%p#notice= notice
-%p
-  %strong Firstname:
-  = @user.firstname
-%p
-  %strong Lastname:
-  = @user.lastname
-%p
-  %strong Height:
-  = @user.height
-%p
-  %strong Weight:
-  = @user.weight
-%p
-  %strong BMI:
-  = ((@user.weight.to_f/(@user.height * @user.height)) * 1000).round(1)
+%main
+  %p#notice= notice
+  %p
+    %strong Firstname:
+    = @user.firstname
+  %p
+    %strong Lastname:
+    = @user.lastname
+  %p
+    %strong Height:
+    = @user.height
+  %p
+    %strong Weight:
+    = @user.weight
+  %p
+    %strong BMI:
+    = ((@user.weight.to_f/(@user.height * @user.height)) * 1000).round(1)
+  %p
+    %input{id: "excercise", type: "hidden", value: @user.liftdatum.map do |item| item.exercise end}
+    %input{id: "reps", type: "hidden", value: @user.liftdatum.map do |item| item.rep end}
+    %input{id: "sets", type: "hidden", value: @user.liftdatum.map do |item| item.set end}
+    %input{id: "weights", type: "hidden", value: @user.liftdatum.map do |item| item.weight end}
+    %input{id: "dates", type: "hidden", value: @user.liftdatum.map do |item| item.created_at.strftime("%F") end}
 
-%input{id: "excercise", type: "hidden", value: @user.liftdatum.map do |item| item.exercise end}
-%input{id: "reps", type: "hidden", value: @user.liftdatum.map do |item| item.rep end}
-%input{id: "sets", type: "hidden", value: @user.liftdatum.map do |item| item.set end}
-%input{id: "weights", type: "hidden", value: @user.liftdatum.map do |item| item.weight end}
-%input{id: "dates", type: "hidden", value: @user.liftdatum.map do |item| item.created_at.strftime("%F") end}
-
-
-= link_to 'Edit profile', edit_user_path(@user)
-//| = link_to 'Back', users_path
-
-#chart-1{style: "height: 30em;width: 75em;margin-left:11em;margin-top:-18.5em;"}
-
-:javascript
-  //var mockdata = {"2013-02-10":11,"2013-02-11":6,"2013-02-12":3,"2013-02-13":2,"2013-02-14":5,"2013-02-15":3,"2013-02-16":8,"2013-02-17":6,"2013-02-18":6,"2013-02-19":12,"2013-02-20":5,"2013-02-21":5,"2013-02-22":3,"2013-02-23":1,"2013-02-24":10,"2013-02-25":1,"2013-02-26":3,"2013-02-27":2,"2013-02-28":3,"2013-03-01":2,"2013-03-02":8};
-  var dates = document.getElementById("dates").value.replace('[', '').replace(']','').replace(/['"]+/g, '').split(', '); //http://stackoverflow.com/questions/19156148/i-want-to-remove-double-quotes-from-a-string
-  var sets = document.getElementById("sets").value.replace('[', '').replace(']','').split(', ');
-  var reps = document.getElementById("reps").value.replace('[', '').replace(']','').split(', ')
-  var weight = document.getElementById("weights").value.replace('[', '').replace(']','').split(', ');
-  var progress = {};
-
-  for(var i = 0; i < dates.length; i++){
-      progress[dates[i]] = (parseInt(weight[i]) + parseInt(reps[i]) + parseInt(sets[i])) / 10;
-  }
+  %p
+    = link_to 'Edit profile', edit_user_path(@user)
+  %p
+    = link_to 'Back', users_path
 
 
-  new Chartkick.LineChart("chart-1", progress, {"xtitle": "Date", "ytitle": "Progress", colors: ["red"]}); // can have mutiple colors with multiple data sets
+
+  %p{style: "height: 2em;width: 75em;margin-left:20em;margin-top:-18.5em;"}
+    Filter:
+    = link_to 'Overall', :id =>'Overall'
+    = link_to 'Bench', :id =>'Bench'
+    = link_to 'Squat', :id =>'Squat'
+    = link_to 'Deadlift', :id =>'Deadlift'
+    #chart-1{style: "height: 25em;width: 75em;margin-left:15em;margin-top:-1.5em;"}
+
+  :javascript
+    var mockdata = {"2013-02-10":11,"2013-02-11":6,"2013-02-12":3,"2013-02-13":2,"2013-02-14":5,"2013-02-15":3,"2013-02-16":8,"2013-02-17":6,"2013-02-18":6,"2013-02-19":12,"2013-02-20":5,"2013-02-21":5,"2013-02-22":3,"2013-02-23":1,"2013-02-24":10,"2013-02-25":1,"2013-02-26":3,"2013-02-27":2,"2013-02-28":3,"2013-03-01":2,"2013-03-02":8};
+    var dates = document.getElementById("dates").value.replace('[', '').replace(']','').replace(/['"]+/g, '').split(', '); //http://stackoverflow.com/questions/19156148/i-want-to-remove-double-quotes-from-a-string
+    var sets = document.getElementById("sets").value.replace('[', '').replace(']','').split(', ');
+    var reps = document.getElementById("reps").value.replace('[', '').replace(']','').split(', ')
+    var weight = document.getElementById("weights").value.replace('[', '').replace(']','').split(', ');
+    var progress = {};
+
+    for(var i = 0; i < dates.length; i++){
+        progress[dates[i]] = (parseInt(weight[i]) + parseInt(reps[i]) + parseInt(sets[i])) / 10;
+    }
+
+
+    var progressChart = new Chartkick.LineChart("chart-1", progress, {"xtitle": "Date", "ytitle": "Progress", colors: ["red"]}); // can have mutiple colors with multiple data sets
+    window.onload = function(){
+      document.getElementById("Overall").onclick = filterGraph();
+
+      // document.getElementById("Bench").onclick = function filterGraph(){
+      //   progressChart.updateData(mockdata);
+      //   progressChart.redraw();
+      }
+
+
+    function filterGraph(){
+        progressChart.updateData(mockdata);
+        progressChart.redraw();
+    }
+
