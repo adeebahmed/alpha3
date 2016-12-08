@@ -17,7 +17,8 @@ class LiftdataControllerTest < ActionDispatch::IntegrationTest
 
   test "should create liftdatum" do
     assert_difference('Liftdatum.count') do
-      post liftdata_url, params: { liftdatum: { exercise: @liftdatum.exercise, rep: @liftdatum.rep, set: @liftdatum.set, weight: @liftdatum.weight } }
+      user = users(:user_one)
+      post liftdata_url, params: { liftdatum: { exercise: @liftdatum.exercise, rep: @liftdatum.rep, set: @liftdatum.set, weight: @liftdatum.weight, user: user } }
     end
 
     assert_redirected_to liftdatum_url(Liftdatum.last)
