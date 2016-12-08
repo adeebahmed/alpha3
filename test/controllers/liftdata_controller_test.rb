@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LiftdataControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @liftdatum = liftdata(:one)
+    @liftdatum = liftdata(:lift_one)
   end
 
   test "should get index" do
