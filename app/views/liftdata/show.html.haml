@@ -11,6 +11,9 @@
 %p
   %strong Weight:
   = @liftdatum.weight
+%p
+  %strong Belongs to:
+  = @liftdatum.user_firstname
 = link_to 'Edit', edit_liftdatum_path(@liftdatum)
 |
 = link_to 'Back', liftdata_path
