@@ -69,6 +69,6 @@ class LiftdataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def liftdatum_params
-      params.require(:liftdatum).permit(:exercise, :set, :rep, :weight)
+      params.require(:liftdatum).permit(:exercise, :set, :rep, :weight, :user)
     end
 end
