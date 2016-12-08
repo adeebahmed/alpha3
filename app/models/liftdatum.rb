@@ -1,4 +1,4 @@
 class Liftdatum < ApplicationRecord
   belongs_to :user
-  delegate :firstname, to: :user, prefix: true #-> @liftdatum.user_name
+  delegate :firstname, :lastname, to: :user, prefix: true #-> @liftdatum.user_firstname
 end
