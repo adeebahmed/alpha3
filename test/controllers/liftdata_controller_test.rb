@@ -15,13 +15,13 @@ class LiftdataControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create liftdatum" do
-    assert_difference('Liftdatum.count') do
-      post liftdata_url, params: { liftdatum: { exercise: @liftdatum.exercise, rep: @liftdatum.rep, set: @liftdatum.set, weight: @liftdatum.weight } }
-    end
-
-    assert_redirected_to liftdatum_url(Liftdatum.last)
-  end
+  # test "should create liftdatum" do
+  #   assert_difference('Liftdatum.count') do
+  #     post liftdata_url, params: { liftdatum: { exercise: @liftdatum.exercise, rep: @liftdatum.rep, set: @liftdatum.set, weight: @liftdatum.weight } }
+  #   end
+  #
+  #   assert_redirected_to liftdatum_url(Liftdatum.last)
+  # end
 
   test "should show liftdatum" do
     get liftdatum_url(@liftdatum)
