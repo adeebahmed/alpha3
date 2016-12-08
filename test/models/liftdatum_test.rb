@@ -6,10 +6,10 @@ class LiftdatumTest < ActiveSupport::TestCase
   # end
   
 	test "liftdata must have a user" do
-	liftdata = liftdata(:liftdata_one)
-	assert_equal liftdata.user.firstname, "user_1"
+	liftdata = liftdata(:lift_one)
+	assert_equal liftdata.user.firstname, "Adeeb"
   end
-  
+
   test "liftdata must have weight data" do
   	liftdata = liftdata(:lift_one)
   	assert liftdata.valid?
